@@ -1,39 +1,21 @@
 <template>
     <div class="home-component">
         <AppBar />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-
-        v
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi repudiandae similique expedita beatae impedit quisquam provident, minima iure iste veniam optio ipsa neque, magnam, necessitatibus alias delectus hic! Vitae, tenetur?
+        <LastMatches />
     </div>
 </template>
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import AppBar from '../AppBar/AppBar.vue';
+import LastMatches from '../LastMatches/LastMatches.vue';
+
+const loading = ref(true);
+const error = ref<string | null>(null);
+
+onMounted(async () => {
+    loading.value = true;
+    error.value = null;
+
+})
 </script>
 <style lang="less" src="./HomeComponent.less" />

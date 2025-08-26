@@ -1,0 +1,46 @@
+.last-matches {
+    @LastMatches: .last-matches;
+    padding: var(--spacing-02);
+
+    &__card {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        border-radius: var(--border-radius-03);
+        padding: var(--spacing-03);
+        width: 300px;
+
+        &:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+    }
+    &__league {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    &__league-name {
+        font-weight: 700;
+        font-size: small;
+    }
+    
+    &__teams {
+        justify-content: space-between;
+        align-items: center;
+        margin-top: var(--spacing-02);
+    }
+
+    &__team {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 24px;
+        height: 24px;
+        margin-right: var(--spacing-01);
+    }
+}
