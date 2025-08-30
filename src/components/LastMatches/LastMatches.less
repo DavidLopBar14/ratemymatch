@@ -1,46 +1,77 @@
 .last-matches {
-    @LastMatches: .last-matches;
-    padding: var(--spacing-02);
+  @LastMatches: .last-matches;
+  padding: var(--spacing-02);
 
-    &__card {
-        background: var(--color-secondary);
-        color: var(--color-primary);
-        border-radius: var(--border-radius-03);
-        padding: var(--spacing-03);
-        width: 300px;
+  &__card {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    border-radius: var(--border-radius-03);
+    padding: var(--spacing-03);
+    width: 300px;
+    transition: all 0.3s ease;
 
-        &:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+    &:hover {
+      transform: translateY(-3px);
+      cursor: pointer;
+      opacity: 0.9;
     }
-    &__league {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  }
+  &__league {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-name {
+      font-weight: 700;
+      font-size: small;
     }
-    
-    &__league-name {
-        font-weight: 700;
-        font-size: small;
-    }
-    
-    &__teams {
-        justify-content: space-between;
-        align-items: center;
-        margin-top: var(--spacing-02);
+  }
+
+  &__teams {
+    align-items: center;
+    margin-top: var(--spacing-02);
+  }
+
+  &__team {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+
+    &-logo {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      margin-right: var(--spacing-02);
     }
 
-    &__team {
-        display: flex;
-        align-items: center;
+    &-name {
+      flex: 2;
     }
 
-    &__logo {
-        width: 24px;
-        height: 24px;
-        margin-right: var(--spacing-01);
+    &-score {
+      font-size: 20px;
+      flex: 1;
+      text-align: right;
     }
+  }
+
+  &__logo {
+    width: 24px;
+    height: 24px;
+    margin-right: var(--spacing-01);
+  }
+
+  &__datetime {
+    display: flex;
+    gap: var(--spacing-02);
+    font-weight: 700;
+  }
+
+  &__round {
+    margin-left: auto;
+    font-size: small;
+    display: flex;
+    align-items: center;
+  }
 }

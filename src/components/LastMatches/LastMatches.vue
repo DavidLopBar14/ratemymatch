@@ -9,19 +9,22 @@
         </div>
         <div class="last-matches__teams">
             <div class="last-matches__team">
-                <img class="last-matches__logo" :src="match.strHomeTeamBadge" alt="Home Team Logo" />
+                <img class="last-matches__team-logo" :src="match.strHomeTeamBadge" alt="Home Team Logo" />
                 <span class="last-matches__team-name">{{ match.strHomeTeam }}</span>
                 <span class="last-matches__team-score">{{ match.intHomeScore }}</span>
             </div>
             <div class="last-matches__team">
-                <img class="last-matches__logo" :src="match.strAwayTeamBadge" alt="Away Team Logo" />
-                <span class="last-matches__away-team-name">{{ match.strAwayTeam }}</span>
-                <span class="last-matches__away-team-score">{{ match.intAwayScore }}</span>
+                <img class="last-matches__team-logo" :src="match.strAwayTeamBadge" alt="Away Team Logo" />
+                <span class="last-matches__team-name">{{ match.strAwayTeam }}</span>
+                <span class="last-matches__team-score">{{ match.intAwayScore }}</span>
             </div>
         </div>
+        <hr style="color: var(--color-primary); border: 1px solid var(--color-primary);" />
         <div class="last-matches__datetime">
-            <span class="last-matches__date">{{ match.dateEvent }}</span>
-            <span class="last-matches__time">{{ match.strTime }}</span>
+            <span class="last-matches__date">{{ formatDate(match.dateEvent) }}</span>
+            <span class="last-matches__time">{{ formatTime(match.strTime) }}</span>
+            <span class="last-matches__round">Jornada {{ match.intRound }}</span>
+
         </div>
     </div>
   </div>
@@ -30,25 +33,39 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import api from '../../services/api';
-
-interface Match {
-  idEvent: string;
-  strEvent: string;
-  strLeagueBadge: string;
-  strHomeTeamBadge: string;
-  strAwayTeamBadge: string;
-  strHomeTeam: string;
-  strAwayTeam: string;
-  intHomeScore: string | null;
-  intAwayScore: string | null;
-  dateEvent: string;
-  strTime: string;
-  strLeague: string;
-}
+import type { Match } from './types';
 
 const matches = ref<Match[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return '';
+
+  const date = new Date(dateStr);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear().toString().slice(-2);
+
+  return `${day}/${month}/${year}`;
+}
+
+
+
+function formatTime(time: string): string {
+  if (!time) return '';
+
+  const [hourStr, minuteStr] = time.split(':');
+  let hour = parseInt(hourStr, 10);
+  const minutes = parseInt(minuteStr, 10);
+
+  hour = (hour + 2) % 24;
+
+  const formattedHour = hour.toString().padStart(2, '0');
+  const formattedMinutes = minutes.toString().padStart(2, '0');
+
+  return `${formattedHour}:${formattedMinutes}`;
+}
 
 onMounted(async () => {
   loading.value = true;
