@@ -1,6 +1,11 @@
 .last-matches {
   @LastMatches: .last-matches;
-  padding: var(--spacing-02);
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-02);
+  }
 
   &__card {
     background: var(--color-secondary);
@@ -46,7 +51,7 @@
     }
 
     &-name {
-      flex: 2;
+      flex: 5;
     }
 
     &-score {
