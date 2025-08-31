@@ -32,15 +32,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, toRefs } from 'vue';
+import { ref, onMounted, toRefs, watch } from 'vue';
 import api from '../../services/api';
 import type { Match } from './types';
 
 const props = defineProps<{
   league: string;
+  date: string;
 }>();
 
-const { league } = toRefs(props);
+const { league, date } = toRefs(props);
 
 const matches = ref<Match[]>([]);
 const loading = ref(true);
@@ -87,18 +88,14 @@ function formatTime(time: string): string {
   return `${formattedHour}:${formattedMinutes}`;
 }
 
-onMounted(async () => {
+async function fetchMatches() {
   loading.value = true;
   error.value = null;
 
-  const today = new Date().toISOString().split('T')[0];
-  console.log('Fecha de hoy:', today);
-  // const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-
   try {
-    const response = await api.get<{ events: Match[] }>('/eventsday.php?d=' + today + '&l=' + league.value);
+    const response = await api.get<{ events: Match[] }>('/eventsday.php?d=' + date.value + '&l=' + league.value);
     matches.value = response.data.events || [];
-    console.log('Datos de partidos obtenidos:', matches.value);
+    // console.log('Datos de partidos obtenidos:', matches.value);
 
   } catch (err) {
     error.value = 'No se pudieron cargar los partidos';
@@ -106,6 +103,9 @@ onMounted(async () => {
   } finally {
     loading.value = false;
   }
-});
+};
+
+onMounted(fetchMatches);
+watch([league, date], fetchMatches);
 </script>
 <style lang="less" src="./LastMatches.less" />
