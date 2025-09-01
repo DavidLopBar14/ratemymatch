@@ -1,30 +1,30 @@
 <template>
-  <div class="last-matches">
+  <div class="matches">
     <h3>{{ formatLeagueName(league) }}</h3>
     <div v-if="loading">Cargando partidos...</div>
-    <div class="last-matches__wrapper">
-      <div class="last-matches__card" v-for="match in matches" :key="match.idEvent">
-          <div class="last-matches__league">
-              <img class="last-matches__logo" :src="match.strLeagueBadge" alt="League Logo" />
-              <span class="last-matches__league-name">{{ formatLeagueName(match.strLeague) }}</span>
+    <div class="matches__wrapper">
+      <div class="matches__card" v-for="match in matches" :key="match.idEvent">
+          <div class="matches__league">
+              <img class="matches__logo" :src="match.strLeagueBadge" alt="League Logo" />
+              <span class="matches__league-name">{{ formatLeagueName(match.strLeague) }}</span>
           </div>
-          <div class="last-matches__teams">
-              <div class="last-matches__team">
-                  <img class="last-matches__team-logo" :src="match.strHomeTeamBadge" alt="Home Team Logo" />
-                  <span class="last-matches__team-name">{{ match.strHomeTeam }}</span>
-                  <span class="last-matches__team-score">{{ match.intHomeScore }}</span>
+          <div class="matches__teams">
+              <div class="matches__team">
+                  <img class="matches__team-logo" :src="match.strHomeTeamBadge" alt="Home Team Logo" />
+                  <span class="matches__team-name">{{ match.strHomeTeam }}</span>
+                  <span class="matches__team-score">{{ match.intHomeScore }}</span>
               </div>
-              <div class="last-matches__team">
-                  <img class="last-matches__team-logo" :src="match.strAwayTeamBadge" alt="Away Team Logo" />
-                  <span class="last-matches__team-name">{{ match.strAwayTeam }}</span>
-                  <span class="last-matches__team-score">{{ match.intAwayScore }}</span>
+              <div class="matches__team">
+                  <img class="matches__team-logo" :src="match.strAwayTeamBadge" alt="Away Team Logo" />
+                  <span class="matches__team-name">{{ match.strAwayTeam }}</span>
+                  <span class="matches__team-score">{{ match.intAwayScore }}</span>
               </div>
           </div>
           <hr style="color: var(--color-primary); border: 1px solid var(--color-primary);" />
-          <div class="last-matches__datetime">
-            <span class="last-matches__time">{{ formatTime(match.strTime) }}</span>
-              <span class="last-matches__date">{{ formatDate(match.dateEvent) }}</span>
-              <span class="last-matches__round">Jornada {{ match.intRound }}</span>
+          <div class="matches__datetime">
+            <span class="matches__time">{{ formatTime(match.strTime) }}</span>
+              <span class="matches__date">{{ formatDate(match.dateEvent) }}</span>
+              <span class="matches__round">Jornada {{ match.intRound }}</span>
           </div>
       </div>
     </div>
@@ -108,4 +108,4 @@ async function fetchMatches() {
 onMounted(fetchMatches);
 watch([league, date], fetchMatches);
 </script>
-<style lang="less" src="./LastMatches.less" />
+<style lang="less" src="./Matches.less" />
