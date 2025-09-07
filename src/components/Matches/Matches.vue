@@ -44,7 +44,11 @@
         <div class="matches__datetime">
           <span class="matches__time">{{ formatTime(match.strTime) }}</span>
           <span class="matches__date">{{ formatDate(match.dateEvent) }}</span>
-          <span v-if="match.strStatus !== 'Match Finished'" class="matches__live">&bull; LIVE</span>
+          <span
+            v-if="match.strStatus !== 'Match Finished' && match.strStatus !== 'Match Postponed'"
+            class="matches__live"
+            >&bull; LIVE</span
+          >
           <span class="matches__round">Jornada {{ match.intRound }}</span>
         </div>
       </div>
@@ -101,6 +105,16 @@ function formatLeagueName(name: string) {
       return "2. Bundesliga";
     case "French Ligue 2":
       return "Ligue 2";
+    case "UEFA Champions League":
+      return "Champions League";
+    case "UEFA Europa League":
+      return "Europa League";
+    case "UEFA Conference League":
+      return "Conference League";
+      case "Spanish Primera RFEF Group 1":
+        return "1ª RFEF Grupo 1";
+      case "Spanish Primera RFEF Group 2":
+        return "1ª RFEF Grupo 2";
   }
 }
 
