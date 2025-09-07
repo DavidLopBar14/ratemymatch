@@ -1,4 +1,10 @@
 .home-component {
     @HomeComponent: .home-component;
     padding: var(--spacing-02);
+
+    &__selectors {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: var(--spacing-02);
+    }
 }

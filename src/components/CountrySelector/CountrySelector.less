@@ -1,0 +1,19 @@
+.country-selector {
+  @CountrySelector: .country-selector;
+  display: flex;
+  align-items: center;
+
+  &__select {
+    border: 1px solid black;
+    border-radius: var(--border-radius-02);
+    font-family: var(--font-family-base);
+    padding: var(--spacing-01);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

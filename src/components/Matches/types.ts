@@ -12,4 +12,5 @@ export interface Match {
   strTime: string;
   strLeague: string;
   intRound: string;
+  strStatus: string;
 }
