@@ -1,0 +1,68 @@
+.selected-match {
+    @SelectedMatch: .selected-match;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--spacing-03);
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-in-out;
+    color: var(--color-text);
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    &__content {
+        padding: var(--spacing-01);
+        background-color: var(--color-primary);
+        border-radius: var(--border-radius-01);
+        margin: 0 auto;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 8px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__league {
+        font-size: 0.9rem;
+        color: var(--color-secondary);
+        margin-bottom: var(--spacing-01);
+    }
+
+    &__info {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    &__close-button {
+        background: transparent;
+        border: none;
+        color: var(--color-text);
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+            color: var(--color-secondary);
+        }
+    }
+}

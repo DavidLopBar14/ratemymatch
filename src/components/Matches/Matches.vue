@@ -4,7 +4,7 @@
     <div v-if="loading">Cargando partidos...</div>
     <div v-else-if="!matches.length">No hay partidos en este día</div>
     <div class="matches__wrapper">
-      <div class="matches__card" v-for="match in matches" :key="match.idEvent">
+      <div class="matches__card" v-for="match in matches" :key="match.idEvent" @click="$emit('select-match', match)">
         <div class="matches__league">
           <img
             class="matches__logo"
@@ -60,10 +60,21 @@
 import { ref, onMounted, toRefs, watch } from "vue";
 import api from "../../services/api";
 import type { Match } from "./types";
+import { useDate } from "../../composables/useDate";
+import { useTime } from "../../composables/useTime";
+import { useLeagueName } from "../../composables/useLeagueName";
+
+const { formatDate } = useDate();
+const { formatTime } = useTime();
+const { formatLeagueName } = useLeagueName();
 
 const props = defineProps<{
   league: string;
   date: string;
+}>();
+
+const emit = defineEmits<{
+  (e: "select-match", match: Match): void;
 }>();
 
 const { league, date } = toRefs(props);
@@ -71,67 +82,6 @@ const { league, date } = toRefs(props);
 const matches = ref<Match[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
-
-function formatDate(dateStr: string): string {
-  if (!dateStr) return "";
-
-  const date = new Date(dateStr);
-  const day = date.getDate().toString().padStart(2, "0");
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const year = date.getFullYear().toString().slice(-2);
-
-  return `${day}/${month}/${year}`;
-}
-
-function formatLeagueName(name: string) {
-  switch (name) {
-    case "English Premier League":
-      return "Premier League";
-    case "Spanish La Liga":
-      return "La Liga";
-    case "Italian Serie A":
-      return "Serie A";
-    case "German Bundesliga":
-      return "Bundesliga";
-    case "French Ligue 1":
-      return "Ligue 1";
-    case "Spanish La Liga 2":
-      return "La Liga 2";
-    case "English League Championship":
-      return "Championship";
-    case "Italian Serie B":
-      return "Serie B";
-    case "German 2. Bundesliga":
-      return "2. Bundesliga";
-    case "French Ligue 2":
-      return "Ligue 2";
-    case "UEFA Champions League":
-      return "Champions League";
-    case "UEFA Europa League":
-      return "Europa League";
-    case "UEFA Conference League":
-      return "Conference League";
-      case "Spanish Primera RFEF Group 1":
-        return "1ª RFEF Grupo 1";
-      case "Spanish Primera RFEF Group 2":
-        return "1ª RFEF Grupo 2";
-  }
-}
-
-function formatTime(time: string): string {
-  if (!time) return "";
-
-  const [hourStr, minuteStr] = time.split(":");
-  let hour = parseInt(hourStr, 10);
-  const minutes = parseInt(minuteStr, 10);
-
-  hour = (hour + 2) % 24;
-
-  const formattedHour = hour.toString().padStart(2, "0");
-  const formattedMinutes = minutes.toString().padStart(2, "0");
-
-  return `${formattedHour}:${formattedMinutes}`;
-}
 
 async function fetchMatches() {
   loading.value = true;

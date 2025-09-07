@@ -8,7 +8,13 @@
     </div>
 
     <div v-for="league in getCountryLeagues" :key="league">
-      <Matches :league="league" :date="selectedDate" />
+      <Matches :league="league" :date="selectedDate" @select-match="openMatch" />
+    </div>
+
+    <div v-if="selectedMatch" class="home-component__selected-match" @click.self="closeMatch">
+      <div class="home-component__selected-match-content">
+        <SelectedMatch :match="selectedMatch" @close="closeMatch" />
+      </div>
     </div>
   </div>
 </template>
@@ -18,9 +24,11 @@ import AppBar from "../AppBar/AppBar.vue";
 import Matches from "../Matches/Matches.vue";
 import DaySelector from "../DaySelector/DaySelector.vue";
 import CountrySelector from "../CountrySelector/CountrySelector.vue";
+import SelectedMatch from "../SelectedMatch/SelectedMatch.vue";
 
 const loading = ref(true);
 const error = ref<string | null>(null);
+const selectedMatch = ref<any | null>(null);
 
 const selectedDate = ref("");
 const selectedCountry = ref("ES");
@@ -47,6 +55,15 @@ const getCountryLeagues = computed((): string[] => {
       return [];
   }
 });
+
+const openMatch = (match: any) => {
+  selectedMatch.value = match;
+  console.log("Selected match:", match);
+};
+
+const closeMatch = () => {
+  selectedMatch.value = null;
+};
 
 onMounted(async () => {
   loading.value = true;
