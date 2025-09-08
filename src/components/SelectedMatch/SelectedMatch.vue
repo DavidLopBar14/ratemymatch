@@ -7,7 +7,17 @@
           <span>{{ formatDate(match.dateEvent) }}</span> &bull; <span class="matches__time">{{ formatTime(match.strTime) }}</span>
         </div>
         <div class="selected-match__teams">
-            
+          <div class="selected-match__home-team">
+            <img v-if="match.strHomeTeamBadge" :src="match.strHomeTeamBadge" alt="Home Team Badge" class="selected-match__team-badge" />
+            <span class="selected-match__team-name">{{ match.strHomeTeam }}</span>
+          </div>
+          <div class="selected-match__score">
+            <span>{{ match.intHomeScore }}</span> - <span>{{ match.intAwayScore }}</span>
+          </div>
+          <div class="selected-match__away-team">
+            <img v-if="match.strAwayTeamBadge" :src="match.strAwayTeamBadge" alt="Away Team Badge" class="selected-match__team-badge" />
+            <span class="selected-match__team-name">{{ match.strAwayTeam }}</span>
+          </div>
         </div>
     </div>
     <button class="selected-match__close-button" @click="$emit('close')">
