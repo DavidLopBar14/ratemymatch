@@ -1,7 +1,14 @@
 <template>
   <div class="day-selector">
     <button class="day-selector__button" @click="prevDay">&#8592;</button>
-    <span>{{ formattedDate }}</span>
+
+    <input
+      type="date"
+      v-model="inputDate"
+      @change="onDateChange"
+      class="day-selector__input"
+    />
+
     <button v-if="showNextButton" class="day-selector__button" @click="nextDay">
       &#8594;
     </button>
@@ -17,6 +24,8 @@ const emit = defineEmits<{
 
 const currentDate = ref(new Date());
 
+const inputDate = ref(formatISODate(currentDate.value));
+
 const showNextButton = computed(() => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -30,13 +39,23 @@ const showNextButton = computed(() => {
 function prevDay() {
   const newDate = new Date(currentDate.value);
   newDate.setDate(newDate.getDate() - 1);
-  currentDate.value = newDate;
+  updateDate(newDate);
 }
 
 function nextDay() {
   const newDate = new Date(currentDate.value);
   newDate.setDate(newDate.getDate() + 1);
-  currentDate.value = newDate;
+  updateDate(newDate);
+}
+
+function updateDate(date: Date) {
+  currentDate.value = date;
+  inputDate.value = formatISODate(date);
+}
+
+function onDateChange() {
+  const newDate = new Date(inputDate.value);
+  updateDate(newDate);
 }
 
 function formatISODate(date: Date): string {
@@ -45,15 +64,6 @@ function formatISODate(date: Date): string {
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
-
-function formatDisplayDate(date: Date): string {
-  return date.toLocaleDateString("es-ES", {
-    month: "2-digit",
-    day: "2-digit",
-  });
-}
-
-const formattedDate = computed(() => formatDisplayDate(currentDate.value));
 
 watch(
   currentDate,

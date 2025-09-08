@@ -45,7 +45,7 @@
           <span class="matches__time">{{ formatTime(match.strTime) }}</span>
           <span class="matches__date">{{ formatDate(match.dateEvent) }}</span>
           <span
-            v-if="match.strStatus !== 'Match Finished' && match.strStatus !== 'Match Postponed'"
+            v-if="match.strStatus !== 'Match Finished' && match.strStatus !== 'Match Postponed' && match.strStatus !== null"
             class="matches__live"
             >&bull; LIVE</span
           >
