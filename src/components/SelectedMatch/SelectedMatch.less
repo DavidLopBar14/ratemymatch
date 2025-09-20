@@ -86,6 +86,58 @@
         font-weight: bold;
         margin: 0 var(--spacing-02);
     }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-02);
+        margin-block: var(--spacing-03) var(--spacing-02);
+    }
+
+    &__star {
+        color: var(--color-primary);
+        margin-right: var(--spacing-01);
+        font-size: 1.2rem;
+    }
+
+    &__rate-button {
+        display: block;
+        width: 50%;
+        padding: var(--spacing-02);
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        border: none;
+        border-radius: var(--border-radius-02);
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: var(--color-secondary-dark);
+        }
+    }
+
+    &__share-button {
+        display: block;
+        width: 8%;
+        padding: var(--spacing-02);
+        background-color: var(--color-text);
+        color: var(--color-primary);
+        border: none;
+        border-radius: var(--border-radius-02);
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+    &__share-icon {
+        width: 30px;
+        height: 30px;
+        fill: var(--color-primary);
+        stroke: var(--color-primary);  
+        vertical-align: middle;
+    }
     
     &__close-button {
         position: absolute;

@@ -20,9 +20,17 @@
           </div>
         </div>
     </div>
-    <button class="selected-match__close-button" @click="$emit('close')">
-      X
-    </button>
+    <div class="selected-match__actions">
+      <button class="selected-match__rate-button">
+        <span class="selected-match__star">★</span> Valorar Partido
+      </button>
+      <button class="selected-match__share-button">
+        <ShareIcon />
+      </button>
+      <button class="selected-match__close-button" @click="$emit('close')">
+        X
+      </button>
+    </div>
 </div>
   </div>
 </template>
@@ -30,6 +38,7 @@
 import { useDate } from "../../composables/useDate";
 import { useTime } from "../../composables/useTime";
 import { useLeagueName } from "../../composables/useLeagueName";
+import ShareIcon from "../../assets/ShareIcon.vue";
 const { formatDate } = useDate();
 const { formatTime } = useTime();
 const { formatLeagueName } = useLeagueName();

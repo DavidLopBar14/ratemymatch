@@ -23,7 +23,9 @@
               alt="Home Team Logo"
             />
             <span class="matches__team-name">{{ match.strHomeTeam }}</span>
-            <span class="matches__team-score">{{ match.intHomeScore }}</span>
+            <div class="matches__team-score-container">
+              <span class="matches__team-score">{{ match.intHomeScore }}</span>
+            </div>
           </div>
           <div class="matches__team">
             <img
@@ -32,7 +34,9 @@
               alt="Away Team Logo"
             />
             <span class="matches__team-name">{{ match.strAwayTeam }}</span>
-            <span class="matches__team-score">{{ match.intAwayScore }}</span>
+            <div class="matches__team-score-container">
+              <span class="matches__team-score">{{ match.intAwayScore }}</span>
+            </div>
           </div>
         </div>
         <hr
@@ -45,7 +49,7 @@
           <span class="matches__time">{{ formatTime(match.strTime) }}</span>
           <span class="matches__date">{{ formatDate(match.dateEvent) }}</span>
           <span
-            v-if="match.strStatus !== 'Match Finished' && match.strStatus !== 'Match Postponed' && match.strStatus !== null"
+            v-if="matchIsLive(match)"
             class="matches__live"
             >&bull; LIVE</span
           >
@@ -82,6 +86,15 @@ const { league, date } = toRefs(props);
 const matches = ref<Match[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
+
+const matchIsLive = (match: Match) => {
+  return (
+    match.strStatus !== "Match Finished" &&
+    match.strStatus !== "Match Postponed" &&
+    match.strStatus !== "Not Started" &&
+    match.strStatus !== null
+  );
+};
 
 async function fetchMatches() {
   loading.value = true;
