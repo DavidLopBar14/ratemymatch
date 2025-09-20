@@ -82,6 +82,16 @@
 
   &__live {
     color: red;
+    animation: live-blink 2s steps(100, end) infinite;
+  }
+
+  @keyframes live-blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
   }
 
   &__round {

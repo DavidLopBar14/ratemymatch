@@ -21,8 +21,11 @@
         </div>
     </div>
     <div class="selected-match__actions">
-      <button class="selected-match__rate-button">
+      <button class="selected-match__rate-button" :class="{ 'selected-match__rate-button--disabled': !matchIsFinished(match) }" :disabled="!matchIsFinished(match)">
         <span class="selected-match__star">★</span> Valorar Partido
+        <span class="selected-match__lock-icon">
+          <LockIcon v-if="!matchIsFinished(match)" />
+        </span>
       </button>
       <button class="selected-match__share-button">
         <ShareIcon />
@@ -39,11 +42,22 @@ import { useDate } from "../../composables/useDate";
 import { useTime } from "../../composables/useTime";
 import { useLeagueName } from "../../composables/useLeagueName";
 import ShareIcon from "../../assets/ShareIcon.vue";
+import LockIcon from "../../assets/LockIcon.vue";
+import type { Match } from "../Matches/types";
+import { toRefs } from "vue";
 const { formatDate } = useDate();
 const { formatTime } = useTime();
 const { formatLeagueName } = useLeagueName();
 const props = defineProps<{
   match: any;
 }>();
+
+const { match } = toRefs(props);
+
+const matchIsFinished = (match: Match) => {
+  return (
+    match.strStatus === "Match Finished"
+  );
+};
 </script>
 <style lang="less" src="./SelectedMatch.less" />

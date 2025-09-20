@@ -105,6 +105,11 @@ async function fetchMatches() {
       "/eventsday.php?d=" + date.value + "&l=" + league.value
     );
     matches.value = response.data.events || [];
+    matches.value.sort((a, b) => {
+      const timeA = a.strTime || "00:00:00";
+      const timeB = b.strTime || "00:00:00";
+      return timeA.localeCompare(timeB);
+    });
     console.log("Datos de partidos obtenidos:", matches.value);
   } catch (err) {
     error.value = "No se pudieron cargar los partidos";
