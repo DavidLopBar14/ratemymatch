@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="selected-match__actions">
-      <button class="selected-match__rate-button" :class="{ 'selected-match__rate-button--disabled': !matchIsFinished(match) }" :disabled="!matchIsFinished(match)">
+      <button class="selected-match__rate-button" :class="{ 'selected-match__rate-button--disabled': !matchIsFinished(match) }" :disabled="!matchIsFinished(match)" @click="showRateMatchInfo = !showRateMatchInfo">
         <span class="selected-match__star">★</span> Valorar Partido
         <span class="selected-match__lock-icon">
           <LockIcon v-if="!matchIsFinished(match)" />
@@ -34,6 +34,9 @@
         X
       </button>
     </div>
+    <div class="selected-match__rate-info">
+      <RateMatch v-if="showRateMatchInfo" />
+    </div>
 </div>
   </div>
 </template>
@@ -44,7 +47,8 @@ import { useLeagueName } from "../../composables/useLeagueName";
 import ShareIcon from "../../assets/ShareIcon.vue";
 import LockIcon from "../../assets/LockIcon.vue";
 import type { Match } from "../Matches/types";
-import { toRefs } from "vue";
+import { ref, toRefs } from "vue";
+import RateMatch from "../RateMatch/RatingMatch.vue";
 const { formatDate } = useDate();
 const { formatTime } = useTime();
 const { formatLeagueName } = useLeagueName();
@@ -59,5 +63,8 @@ const matchIsFinished = (match: Match) => {
     match.strStatus === "Match Finished"
   );
 };
+
+const showRateMatchInfo = ref(false);
+
 </script>
 <style lang="less" src="./SelectedMatch.less" />

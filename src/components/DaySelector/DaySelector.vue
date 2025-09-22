@@ -9,7 +9,7 @@
       class="day-selector__input"
     />
 
-    <button v-if="showNextButton" class="day-selector__button" @click="nextDay">
+    <button class="day-selector__button" @click="nextDay">
       &#8594;
     </button>
   </div>
@@ -26,15 +26,15 @@ const currentDate = ref(new Date());
 
 const inputDate = ref(formatISODate(currentDate.value));
 
-const showNextButton = computed(() => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+// const showNextButton = computed(() => {
+//   const today = new Date();
+//   today.setHours(0, 0, 0, 0);
 
-  const current = new Date(currentDate.value);
-  current.setHours(0, 0, 0, 0);
+//   const current = new Date(currentDate.value);
+//   current.setHours(0, 0, 0, 0);
 
-  return today.getTime() > current.getTime();
-});
+//   return today.getTime() > current.getTime();
+// });
 
 function prevDay() {
   const newDate = new Date(currentDate.value);
