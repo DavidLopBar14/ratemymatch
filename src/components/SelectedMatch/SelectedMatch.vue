@@ -72,7 +72,7 @@ import { useLeagueName } from "../../composables/useLeagueName";
 import ShareIcon from "../../assets/ShareIcon.vue";
 import LockIcon from "../../assets/LockIcon.vue";
 import type { Match } from "../Matches/types";
-import { onMounted, ref, toRefs } from "vue";
+import { ref, toRefs } from "vue";
 import RateMatch from "../RateMatch/RatingMatch.vue";
 const { formatDate } = useDate();
 const { formatTime } = useTime();

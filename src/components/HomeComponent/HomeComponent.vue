@@ -1,6 +1,5 @@
 <template>
   <div class="home-component">
-    <AppBar />
     <h2 style="margin-bottom: 0px">PARTIDOS</h2>
     <div class="home-component__selectors">
       <DaySelector v-model:date="selectedDate" />
@@ -20,7 +19,6 @@
 </template>
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import AppBar from "../AppBar/AppBar.vue";
 import Matches from "../Matches/Matches.vue";
 import DaySelector from "../DaySelector/DaySelector.vue";
 import CountrySelector from "../CountrySelector/CountrySelector.vue";
