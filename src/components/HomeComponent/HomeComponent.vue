@@ -34,15 +34,15 @@ const selectedCountry = ref("ES");
 const getCountryLeagues = computed((): string[] => {
   switch (selectedCountry.value) {
     case "ES":
-      return ["Spanish La Liga", "Spanish La Liga 2", "Spanish Primera RFEF Group 1", "Spanish Primera RFEF Group 2"];
+      return ["Spanish La Liga", "Spanish La Liga 2"];
     case "EN":
-      return ["English Premier League", "English League Championship"];
+      return ["English Premier League"];
     case "IT":
-      return ["Italian Serie A", "Italian Serie B"];
+      return ["Italian Serie A"];
     case "DE":
-      return ["German Bundesliga", "German 2. Bundesliga"];
+      return ["German Bundesliga"];
     case "FR":
-      return ["French Ligue 1", "French Ligue 2"];
+      return ["French Ligue 1"];
     case "EU":
       return [
         "UEFA Champions League",

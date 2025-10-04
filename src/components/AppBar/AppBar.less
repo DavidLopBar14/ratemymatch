@@ -19,6 +19,7 @@
   &__nav {
     display: flex;
     gap: 10px;
+    align-items: center;
     a {
       color: var(--color-text);
       text-decoration: none;
@@ -29,6 +30,47 @@
         color: var(--color-secondary);
         cursor: pointer;
       }
+    }
+  }
+
+  &__login {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: var(--color-secondary);
+    color: var(--color-primary) !important;
+    padding: 4px;
+    border-radius: var(--border-radius-01);
+    cursor: pointer;
+
+    &-icon {
+      width: 20px;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    background-color: var(--color-secondary);
+    color: var(--color-primary) !important;
+    padding: 4px;
+    border-radius: var(--border-radius-01);
+    cursor: pointer;
+    border: none;
+
+    &-icon {
+      width: 20px;
+      aspect-ratio: 1/1;
+    }
+    
+    &:hover {
+      background-color: var(--color-tertiary);
+      color: var(--color-secondary) !important;
     }
   }
 }
