@@ -1,0 +1,50 @@
+.login-signIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-tertiary);
+    border-radius: var(--border-radius-02);
+    max-width: 220px;
+    overflow: hidden;
+  }
+
+  &__option {
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: var(--color-secondary);
+    }
+    
+    &.active {
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
+    }
+  }
+
+    &__form {
+        gap: 15px;
+        padding: 20px;
+        box-shadow: var(--shadow-01);
+        width: 100%;
+    }
+}
+
+.login {
+  &:hover {
+    border-radius: var(--border-radius-02) 0 0 var(--border-radius-02);
+  }
+}
+
+.signIn {
+  &:hover {
+    border-radius: 0 var(--border-radius-02) var(--border-radius-02) 0;
+  }
+}

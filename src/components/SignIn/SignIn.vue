@@ -1,6 +1,5 @@
 <template>
   <div class="signIn">
-    <h2 class="signIn__title">Crear Cuenta</h2>
     <form class="signIn__form">
       <div class="signIn__field">
         <label class="signIn__label" for="email">Correo Electrónico</label>
@@ -23,9 +22,14 @@
         />
       </div>
       <div v-if="errMsg" class="signIn__error">{{ errMsg }}</div>
-      <button class="signIn__submit-button" type="submit" @click="signIn">
+      <button
+        class="signIn__submit-button"
+        type="submit"
+        @click.prevent="signIn"
+      >
         Registrarse
       </button>
+
       <button
         class="signIn__google-button"
         type="button"
@@ -86,7 +90,7 @@ const signInWithGoogle = () => {
   signInWithPopup(getAuth(), provider)
     .then((result) => {
       console.log(result.user);
-      router.push("/prueba");
+      router.push("/");
     })
     .catch((error) => {
       // handle error

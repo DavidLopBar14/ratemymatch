@@ -1,6 +1,5 @@
 <template>
   <div class="login">
-    <h2 class="login__title">Iniciar Sesión</h2>
     <form class="login__form">
       <div class="login__field">
         <label class="login__label" for="email">Correo Electrónico</label>
@@ -23,7 +22,7 @@
         />
       </div>
       <div v-if="errMsg" class="login__error">{{ errMsg }}</div>
-      <button class="login__submit-button" type="submit" @click="login">
+      <button class="login__submit-button" type="submit" @click.prevent="login">
         Iniciar Sesión
       </button>
       <button
@@ -39,17 +38,13 @@
         Iniciar sesión con Google
       </button>
     </form>
-    <p class="login__signup">
-      ¿No tienes una cuenta?
-      <a href="#" class="login__signup-link">Regístrate aquí</a>
-    </p>
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
 import { getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from "vue-router";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const email = ref("");
 const password = ref("");

@@ -1,11 +1,4 @@
 .signIn {  
-  &__title {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-03);
-    color: var(--color-text);
-    text-align: center;
-  }
-
   &__form {
     display: flex;
     flex-direction: column;
@@ -43,6 +36,12 @@
       border-color: var(--color-secondary);
       outline: none;
     }
+  }
+
+  &__error {
+    color: rgb(241, 75, 75);
+    margin-bottom: var(--spacing-03);
+    text-align: center;
   }
 
   &__submit-button {

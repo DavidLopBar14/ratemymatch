@@ -7,8 +7,7 @@
       <router-link to="/">Inicio</router-link>
 
       <router-link v-if="isLoggedIn" to="/profile">Perfil</router-link>
-      <router-link v-if="!isLoggedIn" to="/login">Iniciar Sesión</router-link>
-      <router-link v-if="!isLoggedIn" to="/signIn">Registrarse</router-link>
+      <router-link v-else to="/login">Iniciar Sesión / Registrarse</router-link>
       <button @click="handleSignOut" v-if="isLoggedIn">Cerrar Sesión</button>
     </nav>
   </header>
