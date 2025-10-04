@@ -12,28 +12,16 @@
       <label class="rating-match__label" for="no-rating">Sin nota</label>
     </span>
     <div class="rating-match__rating-options">
-      <div class="rating-match__stars">
-        <div class="rating-match__stars-container" v-if="!noRating">
-          <span
-            v-for="star in 5"
-            :key="star"
-            class="rating-match__star"
-            :class="{
-              active:
-                hoverRated > 0 ? star <= hoverRated : star <= selectedRating,
-            }"
-            @click="selectRating(star)"
-            @mouseover="hoverRating(star)"
-            @mouseleave="hoverRating(0)"
-            >&#9733;</span
-          >
-        </div>
-      </div>
-      <div
-        class="rating-match__selected-rating"
-        v-if="selectedRating > 0 && !noRating"
-      >
-        {{ selectedRating }}
+      <div class="rating-match__numbers" v-if="!noRating">
+        <span
+          v-for="num in 11"
+          :key="num - 1"
+          class="rating-match__number"
+          :class="{ active: num - 1 === selectedRating }"
+          @click="selectRating(num - 1)"
+        >
+          {{ num - 1 }}
+        </span>
       </div>
     </div>
     <div class="rating-match__comments">
@@ -44,18 +32,16 @@
         placeholder="Escribe tus comentarios sobre el partido."
       ></textarea>
     </div>
+    <button class="rating-match__submit-button">Enviar valoración</button>
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
+
 const selectedRating = ref(0);
-const hoverRated = ref(0);
 const noRating = ref(false);
 const selectRating = (rating: number) => {
   selectedRating.value = rating;
-};
-const hoverRating = (rating: number) => {
-  hoverRated.value = rating;
 };
 </script>
 <style lang="less" src="./RatingMatch.less" />
