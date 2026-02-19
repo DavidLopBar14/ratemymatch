@@ -3,15 +3,23 @@ export function useTime() {
     if (!time) return "";
 
     const [hourStr, minuteStr] = time.split(":");
-    let hour = parseInt(hourStr, 10);
-    const minutes = parseInt(minuteStr, 10);
 
-    hour = (hour + 2) % 24;
+    // Creamos fecha en UTC
+    const date = new Date();
+    date.setUTCHours(Number(hourStr));
+    date.setUTCMinutes(Number(minuteStr));
+    date.setUTCSeconds(0);
+    date.setUTCMilliseconds(0);
 
-    const formattedHour = hour.toString().padStart(2, "0");
-    const formattedMinutes = minutes.toString().padStart(2, "0");
-
-    return `${formattedHour}:${formattedMinutes}`;
+    // Formateamos en zona horaria España
+    return new Intl.DateTimeFormat("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone: "Europe/Madrid",
+    }).format(date);
   }
+
   return { formatTime };
 }
+

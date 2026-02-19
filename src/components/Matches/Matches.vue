@@ -47,7 +47,6 @@
         />
         <div class="matches__datetime">
           <span class="matches__time">{{ formatTime(match.strTime) }}</span>
-          <span class="matches__date">{{ formatDate(match.dateEvent) }}</span>
           <span
             v-if="matchIsLive(match)"
             class="matches__live"
@@ -64,11 +63,9 @@
 import { ref, onMounted, toRefs, watch } from "vue";
 import api from "../../services/api";
 import type { Match } from "./types";
-import { useDate } from "../../composables/useDate";
 import { useTime } from "../../composables/useTime";
 import { useLeagueName } from "../../composables/useLeagueName";
 
-const { formatDate } = useDate();
 const { formatTime } = useTime();
 const { formatLeagueName } = useLeagueName();
 

@@ -1,6 +1,5 @@
 <template>
   <div class="home-component">
-    <h2 style="margin-bottom: 0px">PARTIDOS</h2>
     <div class="home-component__selectors">
       <DaySelector v-model:date="selectedDate" />
       <CountrySelector v-model:country="selectedCountry" />

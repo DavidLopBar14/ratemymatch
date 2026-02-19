@@ -1,42 +1,61 @@
 .day-selector {
-    @DaySelector: .day-selector;
-    --day-selector-button-color: var(--color-text);
+  @DaySelector: .day-selector;
+  --ds-height: 25px;
+  --ds-border-radius: var(--border-radius-02);
 
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  gap: var(--spacing-01);
+
+  &__input {
+    border: 1px solid var(--color-primary);
+    background-color: transparent;
+    color: var(--color-text);
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid var(--color-text);
+    padding-inline: var(--spacing-04);
+    height: var(--ds-height);
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-tertiary);
+      transition: background-color 0.3s ease;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-secondary);
+      box-shadow: 0 0 5px var(--color-secondary);
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-text);
+    height: var(--ds-height);
+    border: 1px solid var(--color-text);
     display: flex;
     align-items: center;
-    margin: 1rem 0;
-    gap: 6px;
-    
-    &__input {
-        border: 1px solid var(--color-primary);
-        background-color: transparent;
-        color: var(--color-text);
-        font-size: 18px;
-        text-align: center;
-        
-        &:hover {
-            cursor: pointer;
-        }
+    justify-content: center;
 
-        &:focus {
-            outline: none;
-            border-color: var(--color-secondary);
-            box-shadow: 0 0 5px var(--color-secondary);
-            border-radius: 4px;
-        }
+    &:hover {
+      background-color: var(--color-tertiary);
+      transition: background-color 0.3s ease;
     }
 
-    &__button {
-        border: 1px solid var(--color-primary);
-        cursor: pointer;
-        background-color: transparent;
-        color: var(--day-selector-button-color);
-        font-size: 26px;
-        margin-bottom: 5px;
-
-        &:hover {
-            background-color: var(--color-primary);
-            --day-selector-button-color: var(--color-secondary);
-        }
+    &:active {
+      background-color: var(--color-primary);
+      transition: background-color 0.1s ease;
     }
+  }
+}
+
+.left {
+  border-radius: var(--ds-border-radius) 0 0 var(--ds-border-radius);
+}
+.right {
+  border-radius: 0 var(--ds-border-radius) var(--ds-border-radius) 0;
 }

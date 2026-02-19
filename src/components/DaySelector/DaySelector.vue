@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="day-selector">
     <button class="day-selector__button" @click="prevDay">&#8592;</button>
 
@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, watch } from "vue";
 
 const emit = defineEmits<{
   (e: "update:date", date: string): void;
@@ -74,4 +74,36 @@ watch(
 );
 </script>
 
+<style lang="less" src="./DaySelector.less" /> -->
+<template>
+  <div class="day-selector">
+    <button class="day-selector__button left"><BackIcon /></button>
+
+    <button
+      class="day-selector__input">
+      {{ inputDate }}
+    </button>
+
+    <button class="day-selector__button right">
+      <ForwardIcon />
+    </button>
+  </div>
+</template>
+<script setup lang="ts">
+import { ref } from 'vue';
+import BackIcon from '../../assets/Movement/backIcon.vue';
+import ForwardIcon from '../../assets/Movement/forwardIcon.vue';
+
+const currentDate = ref(new Date());
+const inputDate = ref(formatISODate(currentDate.value));
+
+function formatISODate(date: Date): string {
+  return new Intl.DateTimeFormat("es-ES", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  }).format(date);
+}
+
+</script>
 <style lang="less" src="./DaySelector.less" />
